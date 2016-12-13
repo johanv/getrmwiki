@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# location of wiki to retrieve
+# location of your Redmine project
 PROJECT=https://websites.chiro.be/projects/gap
 # output directory
 OUT=out
@@ -15,7 +15,8 @@ pages=`curl -s $PROJECT/wiki/index.xml | sed "s_</title>_\n</title>_g" |  xmllin
 
 for page in $pages
 do
-	curl -s https://websites.chiro.be/projects/gap/wiki/SnelleStart.xml \
+	echo Downloading $page...
+	curl -s $PROJECT/wiki/$page.xml \
 		| xmllint --xpath '//wiki_page/text/text()' - \
 		| pandoc --from=textile --to=markdown \
 		| sed 's/\\\[\\\[\([^\]*\)\\\]\\\]/\[\1\]\(\1.md\)/g' > $page.md
