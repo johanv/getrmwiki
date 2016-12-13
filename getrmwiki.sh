@@ -19,6 +19,8 @@ do
 	curl -s $PROJECT/wiki/$page.xml \
 		| xmllint --xpath '//wiki_page/text/text()' - \
 		| pandoc --from=textile --to=markdown \
+		| sed 's_&lt;/*pre&gt;\\*_```_g' \
+		| sed 's/\\$//' \
 		| sed 's/\\\[\\\[\([^\]*\)\\\]\\\]/\[\1\]\(\1.md\)/g' > $page.md
 done
 

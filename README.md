@@ -13,3 +13,5 @@ Open the script in a text editor, and adapt the value of `PROJECT` and
 * This script only works for public projects. (The use of API keys is not
   yet supported.)
 * Attached files are ignored.
+* It makes a mess of `<pre>..</pre>` blocks.
+* Lots of other problems ;-)
