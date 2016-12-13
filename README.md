@@ -5,7 +5,7 @@ stores them as markdown documents.
 
 ## how to
 
-Open the script in a text editor, and adapt the value of `PROJECT` and
+Open [the script](getrmwiki.sh) in a text editor, and adapt the value of `PROJECT` and
 `OUT` to your needs. Then just run it, and wait for the files.
 
 ## shortcomings
